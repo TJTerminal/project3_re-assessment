@@ -46,12 +46,9 @@
         <form action="" method="POST">
             {% csrf_token %}
             <table>
-                {{ form.as_table }}
+                {{ widget_form.as_table }}
             </table>
-            <!-- <div>
-                <p>Description: {{widget.description}}</p>
-                <p>Quantity: {{widget.quantity}}</p>
-            </div> -->
+           
         </form>
         <a href="{% url 'add' %}">
             <input type="submit" class="btn" value="ADD WIDGET">
