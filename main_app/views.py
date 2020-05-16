@@ -9,10 +9,17 @@ def home(request):
     widget_form = WidgetForm()
     return render(request, 'index.html', {'widgets': widgets, 'widget_form': widget_form})
 
-class WidgetCreate(CreateView):
-    model = Widget
-    fields = '__all__'
-    success_url = '/'
+def add_widget(request):
+    form = WidgetForm(request.POST)
+    if form.is_valid():
+        new_widget = form.save(commit=False)
+        new_widget.save()
+    return redirect('home')
+
+# class WidgetCreate(CreateView):
+#     model = Widget
+#     fields = '__all__'
+#     success_url = '/'
 
 class WidgetDelete(DeleteView):
     model = Widget

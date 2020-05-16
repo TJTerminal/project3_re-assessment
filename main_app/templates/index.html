@@ -43,16 +43,11 @@
 
     <div>
         <h3>Add Widget</h3>
-        <form action="" method="POST">
+        <form action="{% url 'add' %}" method="POST">
             {% csrf_token %}
-            <table>
-                {{ widget_form.as_table }}
-            </table>
-           
-        </form>
-        <a href="{% url 'add' %}">
+            {{ widget_form.as_table }}
             <input type="submit" class="btn" value="ADD WIDGET">
-        </a>
+        </form>
     </div>
     
 </body>
